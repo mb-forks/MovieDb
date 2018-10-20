@@ -180,10 +180,10 @@ namespace MovieDb
 
                             if (!string.IsNullOrWhiteSpace(i.release_date))
                             {
-                                DateTime r;
+                                DateTimeOffset r;
 
                             // These dates are always in this exact format
-                            if (DateTime.TryParseExact(i.release_date, "yyyy-MM-dd", EnUs, DateTimeStyles.None, out r))
+                            if (DateTimeOffset.TryParseExact(i.release_date, "yyyy-MM-dd", EnUs, DateTimeStyles.None, out r))
                                 {
                                     remoteResult.PremiereDate = r.ToUniversalTime();
                                     remoteResult.ProductionYear = remoteResult.PremiereDate.Value.Year;
@@ -235,10 +235,10 @@ namespace MovieDb
 
                             if (!string.IsNullOrWhiteSpace(i.first_air_date))
                             {
-                                DateTime r;
+                                DateTimeOffset r;
 
                             // These dates are always in this exact format
-                            if (DateTime.TryParseExact(i.first_air_date, "yyyy-MM-dd", EnUs, DateTimeStyles.None, out r))
+                            if (DateTimeOffset.TryParseExact(i.first_air_date, "yyyy-MM-dd", EnUs, DateTimeStyles.None, out r))
                                 {
                                     remoteResult.PremiereDate = r.ToUniversalTime();
                                     remoteResult.ProductionYear = remoteResult.PremiereDate.Value.Year;

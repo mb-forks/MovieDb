@@ -90,10 +90,10 @@ namespace MovieDb
 
                 if (!string.IsNullOrWhiteSpace(obj.release_date))
                 {
-                    DateTime r;
+                    DateTimeOffset r;
 
                     // These dates are always in this exact format
-                    if (DateTime.TryParse(obj.release_date, _usCulture, DateTimeStyles.None, out r))
+                    if (DateTimeOffset.TryParse(obj.release_date, _usCulture, DateTimeStyles.None, out r))
                     {
                         remoteResult.PremiereDate = r.ToUniversalTime();
                         remoteResult.ProductionYear = remoteResult.PremiereDate.Value.Year;
@@ -413,7 +413,7 @@ namespace MovieDb
         /// </summary>
         internal async Task<HttpResponseInfo> GetMovieDbResponse(HttpRequestOptions options)
         {
-            var delayTicks = (requestIntervalMs * 10000) - (DateTime.UtcNow.Ticks - _lastRequestTicks);
+            var delayTicks = (requestIntervalMs * 10000) - (DateTimeOffset.UtcNow.Ticks - _lastRequestTicks);
             var delayMs = Math.Min(delayTicks / 10000, requestIntervalMs);
 
             if (delayMs > 0)
@@ -422,7 +422,7 @@ namespace MovieDb
                 await Task.Delay(Convert.ToInt32(delayMs)).ConfigureAwait(false);
             }
 
-            _lastRequestTicks = DateTime.UtcNow.Ticks;
+            _lastRequestTicks = DateTimeOffset.UtcNow.Ticks;
 
             options.BufferContent = true;
             options.UserAgent = "Emby/" + _appHost.ApplicationVersion;
@@ -525,7 +525,7 @@ namespace MovieDb
         {
             public string iso_3166_1 { get; set; }
             public string certification { get; set; }
-            public DateTime release_date { get; set; }
+            public DateTimeOffset release_date { get; set; }
         }
 
         internal class Releases

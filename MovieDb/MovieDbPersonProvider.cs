@@ -171,14 +171,14 @@ namespace MovieDb
                 }
                 item.Overview = info.biography;
 
-                DateTime date;
+                DateTimeOffset date;
 
-                if (DateTime.TryParseExact(info.birthday, "yyyy-MM-dd", new CultureInfo("en-US"), DateTimeStyles.None, out date))
+                if (DateTimeOffset.TryParseExact(info.birthday, "yyyy-MM-dd", new CultureInfo("en-US"), DateTimeStyles.None, out date))
                 {
                     item.PremiereDate = date.ToUniversalTime();
                 }
 
-                if (DateTime.TryParseExact(info.deathday, "yyyy-MM-dd", new CultureInfo("en-US"), DateTimeStyles.None, out date))
+                if (DateTimeOffset.TryParseExact(info.deathday, "yyyy-MM-dd", new CultureInfo("en-US"), DateTimeStyles.None, out date))
                 {
                     item.EndDate = date.ToUniversalTime();
                 }

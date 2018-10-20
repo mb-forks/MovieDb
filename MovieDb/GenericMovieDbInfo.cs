@@ -198,10 +198,10 @@ namespace MovieDb
 
             if (!string.IsNullOrWhiteSpace(movieData.release_date))
             {
-                DateTime r;
+                DateTimeOffset r;
 
                 // These dates are always in this exact format
-                if (DateTime.TryParse(movieData.release_date, _usCulture, DateTimeStyles.None, out r))
+                if (DateTimeOffset.TryParse(movieData.release_date, _usCulture, DateTimeStyles.None, out r))
                 {
                     movie.PremiereDate = r.ToUniversalTime();
                     movie.ProductionYear = movie.PremiereDate.Value.Year;

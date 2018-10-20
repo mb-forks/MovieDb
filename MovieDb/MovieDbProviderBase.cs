@@ -230,7 +230,7 @@ namespace MovieDb
 
         public class RootObject
         {
-            public DateTime air_date { get; set; }
+            public DateTimeOffset air_date { get; set; }
             public int episode_number { get; set; }
             public string name { get; set; }
             public string overview { get; set; }

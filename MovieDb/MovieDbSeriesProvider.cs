@@ -653,13 +653,13 @@ namespace MovieDb
             public string backdrop_path { get; set; }
             public List<CreatedBy> created_by { get; set; }
             public List<int> episode_run_time { get; set; }
-            public DateTime first_air_date { get; set; }
+            public DateTimeOffset first_air_date { get; set; }
             public List<Genre> genres { get; set; }
             public string homepage { get; set; }
             public int id { get; set; }
             public bool in_production { get; set; }
             public List<string> languages { get; set; }
-            public DateTime last_air_date { get; set; }
+            public DateTimeOffset last_air_date { get; set; }
             public string name { get; set; }
             public List<Network> networks { get; set; }
             public int number_of_episodes { get; set; }
