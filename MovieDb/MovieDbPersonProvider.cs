@@ -159,9 +159,7 @@ namespace MovieDb
                 var item = new Person();
                 result.HasMetadata = true;
 
-                // Take name from incoming info, don't rename the person
-                // TODO: This should go in PersonMetadataService, not each person provider
-                item.Name = id.Name;
+                item.Name = info.name;
 
                 //item.HomePageUrl = info.homepage;
 
