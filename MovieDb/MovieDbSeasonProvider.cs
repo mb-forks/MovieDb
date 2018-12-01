@@ -129,7 +129,7 @@ namespace MovieDb
             });
         }
 
-        private async Task<RootObject> GetSeasonInfo(string seriesTmdbId, int season, string preferredMetadataLanguage, string preferredMetadataCountry,
+        internal async Task<RootObject> GetSeasonInfo(string seriesTmdbId, int season, string preferredMetadataLanguage, string preferredMetadataCountry,
             CancellationToken cancellationToken)
         {
             await EnsureSeasonInfo(seriesTmdbId, season, preferredMetadataLanguage, preferredMetadataCountry, cancellationToken)
